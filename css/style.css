@@ -1,0 +1,172 @@
+:root {
+    --cor-pri: #fffa9f;
+    --cor-sec: #dbbc75;
+    --cor-ter: #672e17;
+    --acc-01: #c29361;
+    --acc-02: #302408;
+    --acc-03: #fffeee;
+    --fs-title: clamp(2rem, 4vw + 1rem, 2.5rem);
+    --fs-text: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+    --fs-days: clamp(0.75rem, 1vw + 0.25rem, 1rem);
+    --size-border: clamp(0.10rem, 0.2vw + 0.1rem, 0.25rem);
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'DePixel', monospace;
+    background-color: var(--cor-pri);
+}
+
+.content {
+    width: min(60vw, 700px);
+    margin: 0 auto;
+    padding: 2vw 0;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.content h1 {
+    text-align: center;
+    font-size: var(--fs-title);
+    color: var(--cor-ter);
+    padding: 0;
+    line-height: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4em;
+    margin: 0 auto 0.8rem;
+    width: fit-content;
+    position: static;
+}
+
+.month-icon {
+    width: 4rem;
+    height: auto;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.content h4 {
+    text-align: left;
+    font-size: var(--fs-text);
+    color: var(--cor-ter);
+    line-height: 1;
+    padding: 0;
+}
+
+.content p {
+    font-size: var(--fs-text);
+    color: var(--cor-sec);
+    text-align: center;
+}
+
+#current-date {
+    font-size: var(--fs-text);
+    color: var(--cor-sec);
+    text-align: center;
+    margin-top: -0.5vw;
+}
+
+.content-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.desc-container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 0 1.5vw;
+}
+
+.calendar-div {
+    display: flex;
+    flex-direction:column;
+    border-radius: 0.75em;
+    corner-shape: notch;
+    border: var(--size-border) solid var(--cor-ter);
+    background-color: var(--acc-03);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25vw 3vw;
+    border-radius: 0.75em;
+    corner-shape: notch;
+    border-bottom: clamp(0.05rem, 0.1vw + 0.1rem, 0.10rem) solid var(--cor-sec);
+}
+
+.days {
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.75vw;
+    padding: 0 1vw;
+    margin: 2vw auto;
+}
+
+.day {
+    text-align: center;
+    background-color: transparent;
+    width: 2.25rem;
+    height: 1.5rem;
+    line-height: 1.5;
+    margin: 0.2rem auto;
+    border-radius: var(--size-border);
+    corner-shape: notch;
+    color: var(--cor-ter);
+    font-size: var(--fs-days);
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2vw 0.5vw 0 0.5vw;
+}
+
+.day-disabled {
+    background-color: transparent;
+    border: none;
+    color: var(--cor-sec), 0.25;
+}
+
+.day-completed {
+    background-color: var(--cor-sec);
+    color: var(--cor-ter);
+    border: none;
+}
+
+.day-current {
+    border: 1px solid var(--cor-ter);
+    box-shadow: 0 0 0 1px var(--cor-ter);
+}
+
+button {
+    background-color: var(--cor-sec);
+    color: var(--cor-ter);
+    border-radius: var(--size-border);
+    corner-shape: notch;
+    border: clamp(0.05rem, 0.1vw + 0.1rem, 0.10rem) solid var(--cor-ter);
+    font-family: 'DePixel', monospace;
+    font-size: var(--fs-text);
+    padding: 0.5vw 1vw;
+    cursor: pointer;
+    display: block;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 2vw;
+}
+
+button:hover {
+    background-color: var(--cor-pri);
+    transition: background-color 0.2s ease-in-out;
+}
