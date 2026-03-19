@@ -189,8 +189,7 @@ footer p {
     justify-content: center;
     align-content: center;
     align-items: center;
-    width: fit-content;
-    padding: 1vw 36vw;
+    padding: 1vw auto;
     margin: 1vw 0;
     position: sticky;
     bottom: 0;
