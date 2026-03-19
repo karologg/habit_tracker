@@ -3,7 +3,7 @@
     --cor-sec: #dbbc75;
     --cor-ter: #672e17;
     --acc-01: #c29361;
-    --acc-02: #302408;
+    --acc-02: #471d0c;
     --acc-03: #fffeee;
     --fs-title: clamp(2rem, 4vw + 1rem, 2.5rem);
     --fs-text: clamp(1rem, 1vw + 0.5rem, 1.25rem);
@@ -21,9 +21,9 @@ body {
 }
 
 .content {
-    width: clamp(54vw, 400px, 80vw);
+    width: clamp(30rem, 40vw + 2rem, 60rem);
     margin: 0 auto;
-    padding: 2vw 0;
+    padding: 4vw 0;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -62,7 +62,16 @@ body {
 .content p {
     font-size: var(--fs-text);
     color: var(--cor-sec);
-    text-align: center;
+}
+
+a {
+    color: var(--cor-ter);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--cor-sec);
+    transition: color 0.5s ease-in-out;
 }
 
 #current-date {
@@ -137,13 +146,14 @@ body {
 .day-disabled {
     background-color: transparent;
     border: none;
-    color: var(--cor-sec), 0.25;
+    color: var(--cor-ter), 0.25;
 }
 
 .day-completed {
     background-color: var(--cor-sec);
     color: var(--cor-ter);
     border: none;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .day-current {
@@ -170,4 +180,18 @@ button {
 button:hover {
     background-color: var(--cor-pri);
     transition: background-color 0.2s ease-in-out;
+}
+
+footer p {
+    color: var(--cor-ter);
+    font-size: var(--fs-text);
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 1vw 36vw;
+    margin: 1vw 0;
+    position: sticky;
+    bottom: 0;
 }
