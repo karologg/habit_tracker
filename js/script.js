@@ -8,7 +8,7 @@ const daysInTheMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 const monthName = months[currentMonth];
 const title = document.getElementById("title");
-title.innerHTML = monthName;
+title.innerHTML = `<img class="month-icon" src="assets/ppp.png"></img>${monthName}<img class="month-icon" src="assets/ppp.png"></img>`;
 
 const daysInThisMonth = daysInTheMonth[currentMonth];
 

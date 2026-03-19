@@ -9,21 +9,22 @@
     --fs-text: clamp(1rem, 1vw + 0.5rem, 1.25rem);
     --fs-days: clamp(0.75rem, 1vw + 0.25rem, 1rem);
     --size-border: clamp(0.10rem, 0.2vw + 0.1rem, 0.25rem);
-    --size-pad: clamp(1.5rem, 2vw + 1rem, 2rem);
+    --size-pad: clamp(1.25rem, 1.5vw + 1rem, 1.75rem);
 
 }
 
 body {
-    margin: 0;
+    align-content: center;
+    margin: auto 0;
     padding: 0;
     font-family: 'DePixel', monospace;
     background-color: var(--cor-pri);
 }
 
 .content {
-    width: clamp(30rem, 40vw + 2rem, 60rem);
+    width: clamp(29rem, 40vw + 2rem, 58rem);
     margin: 0 auto;
-    padding: 1.5vw 0 0 0;
+    padding: 4vw 0 0.5vw 0;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -55,7 +56,7 @@ body {
     text-align: left;
     font-size: var(--fs-text);
     color: var(--cor-ter);
-    line-height: 1.2;
+    line-height: 1.5;
     padding: 0;
 }
 
@@ -65,12 +66,12 @@ body {
 }
 
 a {
-    color: var(--cor-ter);
+    color: var(--cor-sec);
     text-decoration: underline;
 }
 
 a:hover {
-    color: var(--cor-sec);
+    color: var(--cor-ter);
     transition: color 0.5s ease-in-out;
 }
 
@@ -84,7 +85,7 @@ a:hover {
 .content-title {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .desc-container {
@@ -92,7 +93,7 @@ a:hover {
     justify-content: space-between;
     align-content: center;
     align-items: center;
-    padding: 0 1.5vw;
+    padding: 0 3.5vw;
 }
 
 .calendar-div {
@@ -102,6 +103,7 @@ a:hover {
     corner-shape: notch;
     border: var(--size-border) solid var(--cor-ter);
     background-color: var(--acc-03);
+    margin: 0 2vw;
 }
 
 .calendar-header {
@@ -121,7 +123,7 @@ a:hover {
     grid-template-columns: repeat(7, 1fr);
     gap: 0.5vw;
     padding: 0 1vw;
-    margin: 2vw auto;
+    margin: 1.5vw auto;
 }
 
 .days div {
@@ -135,7 +137,7 @@ a:hover {
     width: var(--size-pad);
     height: var(--size-pad);
     line-height: 1.5;
-    margin: 0.2rem auto;
+    margin: auto;
     border-radius: var(--size-border);
     corner-shape: notch;
     color: var(--cor-ter);
@@ -188,7 +190,7 @@ button {
     display: block;
     justify-content: center;
     transition: background-color 0.2s ease-in-out;
-    margin: 1vw 0 0 2vw;
+    margin: 1vw 0 0 3.75vw;
 }
 
 button:hover {
@@ -196,15 +198,23 @@ button:hover {
     transition: background-color 0.2s ease-in-out;
 }
 
-footer p {
-    margin-top: -3vw;
-    color: var(--cor-ter);
-    font-size: var(--fs-text);
-    text-align: right;
-    align-content: right;
+footer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     align-items: center;
-    padding: 1vw auto;
-    margin: 1vw;
+    -moz-box-align: center;
     position: sticky;
     bottom: 0;
+    margin: 0.5vw 0 0.5vw 0;
+}
+
+footer p {
+    margin-top: -3vw;
+    color: var(--cor-sec);
+    font-size: var(--fs-text);
+    text-align: center;
+    justify-content: center;
+    padding: 0.5vw;
+    margin: 1vw;
 }
