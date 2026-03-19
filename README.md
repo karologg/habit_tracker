@@ -1,4 +1,4 @@
-# tracked de hábitos mensal! <a href="https://karologg.github.io/habit_tracker/habittracker.html" target="_blank">link</a>
+# tracker mensal para hábitos! -> <a href="https://karologg.github.io/habit_tracker/habittracker.html" target="_blank">link</a>
 
 
 <p>um pequeno software que serve para acompanhamento de hábitos através do dia a dia</p>
