@@ -23,16 +23,20 @@ for (let i = 0; i < dayElements.length; i++) {
     var context = document.getElementById("contexto");
     var defaultContext = document.getElementById("default");
 
-    var tempString = "" + (i + 1) + "/" + (currentMonth + 1) + "/" + currentYear;;
-    console.log("storing date: " + tempString);
+    const tempString = `${dayNum}/${currentMonth + 1}/${currentYear}`;
 
-    var tempDay = localStorage.getItem(tempString);
-    console.log(tempDay);
+    let tempDay = localStorage.getItem(tempString);
 
     if (dayNum <= daysInThisMonth) {
         dayEl.textContent = dayNum;
+        dayEl.setAttribute("id", `day${dayNum}`);
+
+    if (tempDay === "true") {
+        dayEl.classList.add("day-completed");
+        daysCompleted++;
+    } else if (dayNum < currentDate) {
         dayEl.classList.add("day-disabled");
-        dayEl.setAttribute("id", `day-${dayNum}`);
+    }
 
         if (dayNum === currentDate) {
             dayEl.classList.add("day-current");
@@ -40,29 +44,26 @@ for (let i = 0; i < dayElements.length; i++) {
         }
 
         dayEl.addEventListener("click", function () {
-            if (dayNum > currentDate) {
-                return;
-            }
+            if (dayNum > currentDate) return;
 
             if (dayEl.classList.contains("day-completed")) {
                 dayEl.classList.remove("day-completed");
                 dayEl.classList.add("day-disabled");
-                tempDay = "false";
-                localStorage.setItem(tempString, tempDay);
+                localStorage.setItem(tempString, "false");
                 daysCompleted = Math.max(0, daysCompleted - 1);
             } else {
+                tempDay = "true";
                 dayEl.classList.remove("day-disabled");
                 dayEl.classList.add("day-completed");
-                tempDay = "true";
-                localStorage.setItem(tempString, tempDay);
+                localStorage.setItem(tempString, "true");
                 daysCompleted += 1;
             }
-
             totalDays.innerHTML = `${daysCompleted}/${daysInThisMonth}`;
+
             if (daysCompleted === currentDate) {
-                context.textContent = "frequência perfeita!";
+            context.textContent = "frequência perfeita!";
                 defaultContext.textContent = "";
-            } else if (daysCompleted >= (currentDate / 2) && daysCompleted < currentDate) {
+            } else if ((daysCompleted >= (currentDate / 2) && daysCompleted < currentDate) || (freq >= (currentDate / 2) && freq < currentDate)) {
                 context.textContent = "está indo bem!"
                 defaultContext.textContent = "";
             } else {
@@ -73,8 +74,11 @@ for (let i = 0; i < dayElements.length; i++) {
     } else {
         dayEl.style.visibility = "hidden";
     }
+
+    
 }
 totalDays.innerHTML = `${daysCompleted}/${daysInThisMonth}`;
+const freq = localStorage.setItem("frequency", daysCompleted);
 
 const habitName = document.getElementById("habit-title");
 habitName.onclick = function () {
@@ -84,6 +88,7 @@ habitName.onclick = function () {
     } else {
         habitName.innerHTML = habits.trim();
     }
+    localStorage.setItem("habitName", habitName.innerHTML);
 };
 
 
@@ -97,17 +102,11 @@ console.log("data atual: " + hojeFormatado);
 
 const resetButton = document.getElementById("reset-button");
 resetButton.onclick = function() {
-    if (confirm("tem certeza que desejas resetar o progresso?")) {
-        daysCompleted = 0;
-        totalDays.innerHTML = `${daysCompleted}/${daysInThisMonth}`;
-        dayElements.forEach(dayEl => {
-            if (dayEl.classList.contains("day-completed")) {
-                dayEl.classList.remove("day-completed");
-                dayEl.classList.add("day-disabled");
-            }
-        });
-        habitName.innerHTML = "(clique para adicionar)";
+    if (confirm("esta ação apagará o progresso do navegador")) {
+        localStorage.clear();
+        location.reload();
     }
 }
 
-/*para os dados*/
+const habitSalvo = localStorage.getItem("habitName");
+if (habitSalvo) habitName.innerHTML = habitSalvo;
