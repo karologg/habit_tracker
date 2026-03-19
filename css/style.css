@@ -23,7 +23,7 @@ body {
 .content {
     width: clamp(30rem, 40vw + 2rem, 60rem);
     margin: 0 auto;
-    padding: 4vw 0;
+    padding: 1.5vw 0 0 0;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -106,9 +106,9 @@ a:hover {
 
 .calendar-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 0 3vw;
+    padding: 0;
     border-radius: 0.75em;
     corner-shape: notch;
     border-bottom: clamp(0.05rem, 0.1vw + 0.1rem, 0.10rem) solid var(--cor-sec);
@@ -122,6 +122,11 @@ a:hover {
     gap: 0.5vw;
     padding: 0 1vw;
     margin: 2vw auto;
+}
+
+.days div {
+    color: var(--cor-ter);
+    font-style: bold;
 }
 
 .day {
@@ -144,12 +149,18 @@ a:hover {
 }
 
 .day-disabled {
+    text-align: center;
+    align-items: center;
+    align-content: center;
     background-color: transparent;
     border: none;
     color: var(--cor-ter), 0.25;
 }
 
 .day-completed {
+    text-align: center;
+    align-items: center;
+    align-content: center;
     background-color: var(--cor-sec);
     color: var(--cor-ter);
     border: none;
@@ -157,6 +168,9 @@ a:hover {
 }
 
 .day-current {
+    text-align: center;
+    align-items: center;
+    align-content: center;
     border: 1px solid var(--cor-ter);
     box-shadow: 0 0 0 1px var(--cor-ter);
 }
@@ -168,13 +182,13 @@ button {
     corner-shape: notch;
     border: clamp(0.05rem, 0.1vw + 0.1rem, 0.10rem) solid var(--cor-ter);
     font-family: 'DePixel', monospace;
-    font-size: var(--fs-text);
+    font-size: var(--fs-days);
     padding: 0.5vw 1vw;
     cursor: pointer;
     display: block;
     justify-content: center;
     transition: background-color 0.2s ease-in-out;
-    margin-top: 2vw;
+    margin: 1vw 0 0 2vw;
 }
 
 button:hover {
@@ -183,14 +197,14 @@ button:hover {
 }
 
 footer p {
+    margin-top: -3vw;
     color: var(--cor-ter);
     font-size: var(--fs-text);
-    text-align: center;
-    justify-content: center;
-    align-content: center;
+    text-align: right;
+    align-content: right;
     align-items: center;
     padding: 1vw auto;
-    margin: 1vw 0;
+    margin: 1vw;
     position: sticky;
     bottom: 0;
 }

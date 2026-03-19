@@ -62,9 +62,12 @@ for (let i = 0; i < dayElements.length; i++) {
             if (daysCompleted === currentDate) {
                 context.textContent = "frequência perfeita!";
                 defaultContext.textContent = "";
+            } else if (daysCompleted >= (currentDate / 2) && daysCompleted < currentDate) {
+                context.textContent = "está indo bem!"
+                defaultContext.textContent = "";
             } else {
                 context.textContent = " ";
-                defaultContext.textContent = "frequência mensal";
+                defaultContext.textContent = "acompanhe sua frequência:";
             }
         });
     } else {
