@@ -103,7 +103,7 @@ a:hover {
     corner-shape: notch;
     border: var(--size-border) solid var(--cor-ter);
     background-color: var(--acc-03);
-    margin: 0 2vw;
+    margin: -0.75vw 2vw 0 2vw;
 }
 
 .calendar-header {
@@ -207,6 +207,7 @@ footer {
     position: sticky;
     bottom: 0;
     margin: 0.5vw 0 0.5vw 0;
+    padding: 0 3.5vw
 }
 
 footer p {
